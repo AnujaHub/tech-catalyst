@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Periodic Table Search</title>
+</head>
+<body>
+<h2>Periodic Table Search</h2>
+<label>Search by Atomic Number: </label>
+<input type="number" id="atomicNumber">
+<button onclick="searchByAN()">Search</button>
+<br><br>
+<label>Search by Symbol:</label>
+<input type="text" id="symbol">
+<button onclick="searchBySymbol()">Search</button>
+<h3 id="result"></h3>
+<img src="sblock.png" alt="S-Block Elements" width="300">
+<img src="pblock.jpg" alt="P-Block Elements" width="300">
+<script>
+const elements = [
+{an: 1, symbol: "H", name: "Hydrogen", am: 1.008},
+{an: 2, symbol: "He", name: "Helium", am: 4.0026 ),
+{an: 3, symbol: "Li", name: "Lithium", am: 6.94),
+{an: 4, symbol: "Be", name: "Beryllium", am: 9.0122),
+{an: 5, symbol: "B", name: "Boron", am: 10.81},
+{an: 6, symbol: "C", name: "Carbon", am: 12.011),
+{an: 7, symbol: "N", name: "Nitrogen", am: 14.007),
+{an: 8, symbol: "0", name: "Oxygen", am: 15.999}, 
+{an: 9, symbol: "F", name: "Fluorine", am: 18.998},
+{an: 10, symbol: "Ne", name: "Neon", am: 20.180),
+{an: 11, symbol: "Na", name: "Sodium", am: 22.990),
+{an: 12, symbol: "Mg", name: "Magnesium", am: 24.305},
+{an: 13, symbol: "Al", name: "Aluminium", am: 26.982},
+{an: 14, symbol: "Si", name: "Silicon", am: 28.085},
+{an: 15, symbol: "P", name: "Phosphorus", am: 30.974),
+{an: 16, symbol: "S", name: "Sulfur", am: 32.06),
+{an: 17, symbol: "C1", name: "Chlorine", am: 35.45),
+{an: 18, symbol: "Ar", name: "Argon", am: 39.948},
+{an: 19, symbol: "K", name: "Potassium", am: 39.098 },
+{an: 20, symbol: "Ca", name: "Calcium", am: 40.078},
+{an: 31, symbol: "Ga", name: "Gallium", am: 69.723),
+{an: 32, symbol: "Ge", name: "Germanium", am: 72.630},
+{an: 33, symbol: "As", name: "Arsenic", ", am: 74.922},
+{an: 34, symbol: "Se", name: "Selenium", am: 78.971),
+{an: 35, symbol: "Br", name: "Bromine", am: 79.904 },
+{an: 36, symbol: "Kr", name: "Krypton", am: 83.798},
+{an: 37, symbol: "Rb", name: "Rubidium", am: 85.468),
+{an: 38, symbol: "Sr", name: "Strontium", am: 87.62},
+{an: 49, symbol: "In", name: "Indium", am: 114.818},
+{an: 50, symbol: "Sn", name: "Tin", am: 118.710),
+{an: 51, symbol: "Sb", name: "Antimony", am: 121.760 },
+{an: 52, symbol: "Te", name: "Tellurium", am: 127.60),
+{an: 53, symbol: "I", name: "Iodine", am: 126.90),
+{an: 54, symbol: "Xe", name: "Xenon", am: 131.293),
+{an: 55, symbol: "Cs", name: "Cesium", am: 132.905),
+{an: 56, symbol: "Ba", name: "Barium", am: 137.327},
+{an: 81, symbol: "T1", name: "Thallium", am: 204.38),
+{an: 82, symbol: "Pb", name: "Lead", am: 207.2},
+{an: 83, symbol: "Bi", name: "Bismuth", am: 208.98}
+];
+function searchByAN() {
+const an =
+Number (document.getElementById("atomicNumber").value);
+const element elements.find(e => e.an === an);
+displayResult(element);
+}
+function searchBySymbol() {
+const symbol document.getElementById("symbol").value.trim();
+const element elements.find(e => e.symbol.toLowerCase() ===
+symbol.toLowerCase());
+displayResult(element);
+function displayResult(element) {
+document.getElementById("result").innerHTML element
+? 'Element: ${element.name) (Atomic Number:
+$(element.an), Symbol: $(element.symbol), Atomic Mass: $(element.am})' 
+: "Element not found.";
+}
+</script>
+</body>
+</html>
